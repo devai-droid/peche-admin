@@ -1,0 +1,36 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.icon {
+  margin-right: 4px;
+}
+
+.text {
+  @include title($title-xs);
+}
+
+.common {
+  background-color: $color-brown-50;
+  color: $color-brown-500;
+}
+.information {
+  background-color: $color-gray-100;
+  color: $color-gray-700;
+}
+.highlight {
+  background-color: $color-error-100;
+  color: $color-error-500;
+}
+.warning {
+  background-color: $color-warn-100;
+  color: $color-warning;
+}
+.success {
+  background-color: $color-suc-100;
+  color: $color-suc-600;
+}

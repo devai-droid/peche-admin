@@ -1,0 +1,4 @@
+# eslint ignore list
+node_modules/*
+config/*
+src/lib/orval/*

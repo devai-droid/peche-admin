@@ -1,0 +1,33 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  border-width: 1px;
+  border-style: solid;
+
+  border-color: $color-gray-300;
+  color: $color-gray-700;
+  background-color: white;
+
+  &:disabled {
+    background-color: $color-gray-100;
+    color: $color-gray-300;
+  }
+}
+
+.selected {
+  border-color: $color-brown-50;
+  background-color: $color-brown-50;
+  color: #d35b59;
+}
+
+.icon {
+  margin-right: 4px;
+}
+
+.text {
+  @include title($title-xs);
+}
