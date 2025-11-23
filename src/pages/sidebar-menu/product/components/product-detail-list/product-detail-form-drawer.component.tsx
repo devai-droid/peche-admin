@@ -4,6 +4,7 @@ import {
   ProductDetailPage,
   UpdateProductDetailPageDto,
   UpdateProductDto,
+  FileObject,
 } from "@/lib/orval/model"
 import {
   useProductDetailPageControllerCreate,
@@ -31,6 +32,7 @@ import {
 import React from "react"
 import { useForm } from "react-hook-form"
 import tw from "twin.macro"
+import ImageInput from "@/lib/components/image-input.component"
 
 const ErrorMessage = tw(Typography)`text-red-500 block`
 
@@ -44,12 +46,12 @@ const names: Name[] = [
   { key: "name", label: "", language: true },
   { key: "description", label: "기본 설명", language: true },
   { key: "referenceUrl", label: "참고 URL", language: false },
-  { key: "procedure", label: "시술 과정", language: true },
-  { key: "information", label: "시술 안내", language: true },
-  { key: "advantages", label: "장점", language: true },
-  { key: "target", label: "시술 추천대상", language: true },
-  { key: "qAndA", label: "Q&A", language: true },
-  { key: "caution", label: "주의사항", language: true },
+  // { key: "procedure", label: "시술 과정", language: true },
+  // { key: "information", label: "시술 안내", language: true },
+  // { key: "advantages", label: "장점", language: true },
+  // { key: "target", label: "시술 추천대상", language: true },
+  // { key: "qAndA", label: "Q&A", language: true },
+  // { key: "caution", label: "주의사항", language: true },
 ]
 
 interface Props {
@@ -72,6 +74,13 @@ const ProductDetailFormDrawer = ({ open, onClose, productDetail }: Props) => {
       ...(productDetail as UpdateProductDetailPageDto),
     },
   })
+  const [imageId, setImageId] = React.useState<string | null>(
+    (productDetail?.image as FileObject)?.id || null,
+  )
+
+  const handleImageChangeId = (id: string) => {
+    setImageId(id)
+  }
 
   useProductDetailPageControllerFindOne<ExtendedProductDetail>(productDetail?.id || "", {
     query: {
@@ -95,6 +104,7 @@ const ProductDetailFormDrawer = ({ open, onClose, productDetail }: Props) => {
 
     const body = {
       ...data,
+      ...(imageId && { imageId }),
     } as Partial<CreateProductDto | UpdateProductDto>
 
     if (productDetail?.id) {
@@ -139,8 +149,18 @@ const ProductDetailFormDrawer = ({ open, onClose, productDetail }: Props) => {
                 </Box>
               )
             })}
+            <Box tw="mb-8">
+              <Typography variant="h4" tw="mb-2">
+                대표 이미지
+              </Typography>
 
-            <Box>
+              <ImageInput
+                imageSrc={(productDetail?.image as FileObject)?.url}
+                onChangeId={handleImageChangeId}
+              />
+            </Box>
+
+            {/* <Box>
               <Autocomplete
                 multiple
                 options={productDetails?.items || []}
@@ -158,7 +178,7 @@ const ProductDetailFormDrawer = ({ open, onClose, productDetail }: Props) => {
                 }
                 renderInput={(params) => <TextField {...params} label="연관시술" />}
               />
-            </Box>
+            </Box> */}
           </Box>
           <Box tw="text-right">
             <Button tw="mr-4" color="inherit" variant="contained" onClick={() => onClose()}>
