@@ -27,6 +27,7 @@ import { useQueryClient } from "@tanstack/react-query"
 import dayjs, { Dayjs } from "dayjs"
 import { isNumber } from "lodash"
 import React from "react"
+import EventCategoryImageDrawer from "./components/event-category-list/event-category-image-drawer.component"
 
 const EventCategoryListPage = () => {
   const queryClient = useQueryClient()
@@ -76,6 +77,9 @@ const EventCategoryListPage = () => {
       }
     })
   }
+
+  const [selectedCategory, setSelectedCategory] = React.useState<ExtendedEventCategory | null>(null)
+  const [openDrawer, setOpenDrawer] = React.useState(false)
 
   const names = [
     {
@@ -154,9 +158,12 @@ const EventCategoryListPage = () => {
                   {names.map((name) => (
                     <TableCell key={name.label}>{name.label}</TableCell>
                   ))}
+                  <TableCell>이미지</TableCell>
+                  <TableCell>최소금액</TableCell>
+                  <TableCell>할인율(%)</TableCell>
                   <TableCell>날짜설정</TableCell>
                   <TableCell>요일설정</TableCell>
-                  <TableCell>시간설정</TableCell>
+                  {/* <TableCell>시간설정</TableCell> */}
                   <TableCell>우선순위</TableCell>
                   <TableCell>삭제</TableCell>
                 </TableRow>
@@ -202,6 +209,58 @@ const EventCategoryListPage = () => {
                           />
                         </TableCell>
                       ))}
+                      <TableCell
+                        tw="text-center cursor-pointer"
+                        onClick={() => {
+                          setSelectedCategory(category)
+                          setOpenDrawer(true)
+                        }}>
+                        {category.image?.url ? (
+                          <img
+                            src={category.image.url}
+                            alt="thumb"
+                            width={60}
+                            height={60}
+                            style={{ objectFit: "cover" }}
+                          />
+                        ) : (
+                          <div tw="text-sm">이미지 없음</div>
+                        )}
+                      </TableCell>
+                      {/* ⭐ 최소금액 */}
+                      <TableCell tw="text-center">
+                        <input
+                          type="number"
+                          tw="w-full text-center"
+                          value={category.minPrice ?? ""}
+                          onChange={(e) => {
+                            onChange(category, [
+                              {
+                                key: "minPrice",
+                                value: e.target.value === "" ? null : parseInt(e.target.value, 10),
+                              },
+                            ])
+                          }}
+                        />
+                      </TableCell>
+
+                      {/* ⭐ 할인율 */}
+                      <TableCell tw="text-center">
+                        <input
+                          type="number"
+                          tw="w-full text-center"
+                          value={category.discountPercent ?? ""}
+                          onChange={(e) => {
+                            onChange(category, [
+                              {
+                                key: "discountPercent",
+                                value: e.target.value === "" ? null : parseInt(e.target.value, 10),
+                              },
+                            ])
+                          }}
+                        />
+                      </TableCell>
+
                       <TableCell tw="w-40 text-center">
                         <DatePicker
                           value={category.startDate ? dayjs(category.startDate) : null}
@@ -272,7 +331,7 @@ const EventCategoryListPage = () => {
                           )
                         })}
                       </TableCell>
-                      <TableCell tw="w-36 text-center">
+                      {/* <TableCell tw="w-36 text-center">
                         <TimePicker
                           value={
                             isNumber(category.startHour) && isNumber(category.startMinute)
@@ -333,7 +392,7 @@ const EventCategoryListPage = () => {
                           }}>
                           초기화
                         </Button>
-                      </TableCell>
+                      </TableCell> */}
                       <TableCell tw="text-center">
                         <input
                           type="number"
@@ -374,6 +433,15 @@ const EventCategoryListPage = () => {
           </Button>
         </Box>
       </Box>
+      <EventCategoryImageDrawer
+        open={openDrawer}
+        category={selectedCategory}
+        onClose={(saved: any) => {
+          if (saved) refetch()
+          setOpenDrawer(false)
+          setSelectedCategory(null)
+        }}
+      />
     </LocalizationProvider>
   )
 }
