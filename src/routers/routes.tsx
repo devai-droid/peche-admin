@@ -33,6 +33,10 @@ import PopularProductList from "@/pages/sidebar-menu/popular-product/popular-pro
 import PopularProductPage from "@/pages/sidebar-menu/popular-product/popular-product.page"
 import CelebPicturesList from "@/pages/sidebar-menu/celeb-pictures/celeb-pictures-list.page"
 import CelebPicturesPage from "@/pages/sidebar-menu/celeb-pictures/celeb-pictures.page"
+import MostPopularCategoryListPage from "@/pages/sidebar-menu/most-popular/category/most-popular-category-list.page"
+import MostPopularCategoryDetailPage from "@/pages/sidebar-menu/most-popular/category/most-popular-category-detail.page"
+import MostPopularItemCreatePage from "@/pages/sidebar-menu/most-popular/item/most-popular-item-create.page"
+import MostPopularItemEditPage from "@/pages/sidebar-menu/most-popular/item/most-popular-item-edit.page"
 
 function RootRoutes() {
   const renderRoutes = useRoutes([
@@ -85,16 +89,24 @@ function RootRoutes() {
           element: <PopularProductPage />,
         },
         {
-          path: "/celeb-pictures",
-          element: <CelebPicturesList />,
+          path: "/most-popular",
+          element: <MostPopularCategoryListPage />,
         },
         {
-          path: "/celeb-pictures/new",
-          element: <CelebPicturesPage />,
+          path: "/most-popular/new",
+          element: <MostPopularCategoryDetailPage />,
         },
         {
-          path: "/celeb-pictures/:id",
-          element: <CelebPicturesPage />,
+          path: "/most-popular/:id",
+          element: <MostPopularCategoryDetailPage />,
+        },
+        {
+          path: "/most-popular/:id/items/new",
+          element: <MostPopularItemCreatePage />,
+        },
+        {
+          path: "/most-popular/items/:itemId",
+          element: <MostPopularItemEditPage />,
         },
         {
           path: "/staffs",

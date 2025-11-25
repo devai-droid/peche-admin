@@ -32,6 +32,7 @@ const KeywordsList = () => {
       languageLocale: "zh",
     },
   )
+
   const { data: keywordsListChnTW, refetch: refetchKeywordsChnTW } =
     useSearchKeywordControllerFindMany({
       page: 1,
@@ -82,7 +83,7 @@ const KeywordsList = () => {
     }
     if (keywordsListChnTW && keywordsListChnTW.items) {
       const initialKeywords = keywordsListChnTW.items.map((item) => item.keyword)
-      setKeywordsChn(initialKeywords)
+      setKeywordsChnTW(initialKeywords)
     }
     if (keywordsListJpn && keywordsListJpn.items) {
       const initialKeywords = keywordsListJpn.items.map((item) => item.keyword)
@@ -92,7 +93,14 @@ const KeywordsList = () => {
       const initialKeywords = keywordsListTha.items.map((item) => item.keyword)
       setKeywordsTha(initialKeywords)
     }
-  }, [keywordsListKor, keywordsListEng, keywordsListChn, keywordsListJpn, keywordsListTha])
+  }, [
+    keywordsListKor,
+    keywordsListEng,
+    keywordsListChn,
+    keywordsListChnTW,
+    keywordsListJpn,
+    keywordsListTha,
+  ])
 
   // Function to add a keyword
   const handleAddKeywordKor = async () => {
@@ -185,7 +193,7 @@ const KeywordsList = () => {
     try {
       setLoading(true)
       await searchKeywordControllerCreate(keywordDataChnTW)
-      setKeywordsChnTW([...keywordsChn, keywordChn])
+      setKeywordsChnTW([...keywordsChnTW, keywordChnTW])
       setKeywordChnTW("")
       refetchKeywordsChnTW()
     } finally {

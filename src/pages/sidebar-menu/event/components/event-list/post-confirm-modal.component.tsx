@@ -44,11 +44,11 @@ const PostConfirmModal = ({ handleClose, open, handleConfirm, leftName, rightNam
       <DialogContent>
         <DialogContentText id="alert-dialog-slide-description">
           <Typography tw="mb-4" variant="h3">
-            왼쪽: {leftName ?? "없음"}
+            게시된 이벤트: {leftName ?? "없음"}
           </Typography>
-          <Typography tw="mb-4" variant="h3">
+          {/* <Typography tw="mb-4" variant="h3">
             오른쪽: {rightName ?? "없음"}
-          </Typography>
+          </Typography> */}
           <Typography tw="mb-4 text-md">이 선택 되었습니다. 저장 하시겠습니까?</Typography>
         </DialogContentText>
       </DialogContent>

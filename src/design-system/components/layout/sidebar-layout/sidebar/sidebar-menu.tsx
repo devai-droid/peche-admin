@@ -178,36 +178,36 @@ const items = [
     icon: <WebAsset />,
     label: "팝업 관리",
   },
+  // {
+  //   linkTo: "/popular-products",
+  //   icon: <Redeem />,
+  //   label: "많이 찾는 시술",
+  // },
+  // {
+  //   linkTo: "/mainpage-products",
+  //   icon: <DesktopWindowsOutlined />,
+  //   label: "스페셜 이벤트 관리",
+  // },
   {
-    linkTo: "/popular-products",
-    icon: <Redeem />,
-    label: "많이 찾는 시술",
-  },
-  {
-    linkTo: "/mainpage-products",
-    icon: <DesktopWindowsOutlined />,
-    label: "스페셜 이벤트 관리",
-  },
-  {
-    linkTo: "/celeb-pictures",
+    linkTo: "/most-popular",
     icon: <Star />,
-    label: "셀럽 사진 관리",
-  },
-  {
-    linkTo: "/staffs",
-    icon: <Group />,
-    label: "직원 관리",
-  },
-  {
-    linkTo: "/equipments",
-    icon: <PrecisionManufacturing />,
-    label: "장비 관리",
+    label: "가장 많이 찾는 시술 관리",
   },
   // {
-  //   linkTo: "/keywords",
-  //   icon: <Search />,
-  //   label: "키워드 관리",
+  //   linkTo: "/staffs",
+  //   icon: <Group />,
+  //   label: "직원 관리",
   // },
+  // {
+  //   linkTo: "/equipments",
+  //   icon: <PrecisionManufacturing />,
+  //   label: "장비 관리",
+  // },
+  {
+    linkTo: "/keywords",
+    icon: <Search />,
+    label: "추천 검색어 관리",
+  },
   {
     linkTo: "/accounts",
     icon: <Key />,

@@ -327,7 +327,7 @@ const EventListPage = () => {
           </Button>
           <Box tw="flex flex-1 justify-center items-center gap-4">
             <Box>
-              <Typography tw="mr-2 inline">왼쪽:</Typography>
+              <Typography tw="mr-2 inline">게시된 이벤트:</Typography>
               <Select
                 value={postedFirst?.id ?? ""}
                 onChange={(e) => {
@@ -373,7 +373,7 @@ const EventListPage = () => {
                 </MenuItem>
               </Select>
             </Box>
-            <Box>
+            {/* <Box>
               <Typography tw="mr-2 inline">오른쪽:</Typography>{" "}
               <Select
                 value={postedSecond?.id ?? ""}
@@ -419,7 +419,7 @@ const EventListPage = () => {
                   </Button>
                 </MenuItem>
               </Select>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
 
@@ -933,7 +933,7 @@ const EventListPage = () => {
               이벤트 바로 내리기
             </Button>
 
-            <Box tw="relative">
+            {/* <Box tw="relative">
               <Button tw="px-6" variant="contained" disabled={isBackupLoading}>
                 바로 게시하기
               </Button>
@@ -961,7 +961,7 @@ const EventListPage = () => {
                   오른쪽
                 </Button>
               </ButtonGroup>
-            </Box>
+            </Box> */}
 
             <Button
               variant="contained"
