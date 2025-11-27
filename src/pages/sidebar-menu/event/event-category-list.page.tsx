@@ -161,7 +161,7 @@ const EventCategoryListPage = () => {
                   <TableCell>이미지</TableCell>
                   <TableCell>최소금액</TableCell>
                   <TableCell>할인율(%)</TableCell>
-                  <TableCell>날짜설정</TableCell>
+                  {/* <TableCell>날짜설정</TableCell> */}
                   <TableCell>요일설정</TableCell>
                   {/* <TableCell>시간설정</TableCell> */}
                   <TableCell>우선순위</TableCell>
@@ -261,7 +261,7 @@ const EventCategoryListPage = () => {
                         />
                       </TableCell>
 
-                      <TableCell tw="w-40 text-center">
+                      {/* <TableCell tw="w-40 text-center">
                         <DatePicker
                           value={category.startDate ? dayjs(category.startDate) : null}
                           onChange={(value: Dayjs | null) => {
@@ -304,7 +304,7 @@ const EventCategoryListPage = () => {
                           }}>
                           초기화
                         </Button>
-                      </TableCell>
+                      </TableCell> */}
                       <TableCell tw="w-36">
                         {["월", "화", "수", "목", "금", "토", "일"].map((day, index) => {
                           const value = (index + 1) % 7

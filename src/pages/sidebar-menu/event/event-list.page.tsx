@@ -129,7 +129,7 @@ const EventListPage = () => {
 
   const { data: eventCategories, isLoading: isCategoriesLoading } =
     useEventCategoryControllerFindManyWithPaginationQuery({
-      page,
+      page: 1,
       limit: 100,
     })
   const {
@@ -932,6 +932,20 @@ const EventListPage = () => {
               }}>
               이벤트 바로 내리기
             </Button>
+
+            <Box tw="relative">
+              <Button
+                tw="px-6"
+                variant="contained"
+                disabled={isBackupLoading || !selectedEventBundle}
+                onClick={() => {
+                  if (selectedEventBundle) {
+                    onChangePostBundleTarget("left", selectedEventBundle)
+                  }
+                }}>
+                바로 게시하기
+              </Button>
+            </Box>
 
             {/* <Box tw="relative">
               <Button tw="px-6" variant="contained" disabled={isBackupLoading}>

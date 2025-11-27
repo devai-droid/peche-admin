@@ -294,7 +294,7 @@ const ProductListPage = () => {
             <TableHead tw="bg-[#eee]">
               <TableRow tw="[&>*]:!text-center">
                 <TableCell>ID</TableCell>
-                <TableCell>상품 대분류</TableCell>
+                {/* <TableCell>상품 대분류</TableCell> */}
                 <TableCell>상세페이지</TableCell>
                 <TableCell>통합 CRM 대분류</TableCell>
                 {names.map((name) => (
@@ -326,7 +326,7 @@ const ProductListPage = () => {
                       }}>
                       {product.id}
                     </TableCell>
-                    <TableCell>
+                    {/* <TableCell>
                       <Select
                         fullWidth
                         onClick={(e) => e.stopPropagation()}
@@ -338,7 +338,7 @@ const ProductListPage = () => {
                           </MenuItem>
                         ))}
                       </Select>
-                    </TableCell>
+                    </TableCell> */}
                     <TableCell>
                       <Select
                         labelId="product-detail-select-label"
