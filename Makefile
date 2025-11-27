@@ -23,7 +23,7 @@ DISTRIBUTION_ID?=$(shell aws ssm get-parameter $(AWS_PNR) --name \
 	"/$(INFRA_NAME)/$(STAGE)/$(ADMIN_NAME)/frontend/distribution-id" | jq '.Parameter | .Value')
 # DISTRIBUTION_URL?=$(shell aws ssm get-parameter $(AWS_PNR) --name \
 # 	"/$(INFRA_NAME)/$(STAGE)/$(ADMIN_NAME)/frontend/url" | jq '.Parameter | .Value')
-DISTRIBUTION_URL?=$(if $(filter dev,$(STAGE)),https://admin-dev.pecheclinic.com/,https://admin.pecheclinic.com/)
+DISTRIBUTION_URL?=$(if $(filter dev,$(STAGE)),https://admin.dev.pecheclinic.clinic/,https://admin.pecheclinic.clinic/)
 KAKAO_APP_REST_KEY?=$(shell aws ssm get-parameter $(AWS_PNR) --name \
 	"/$(INFRA_NAME)/$(STAGE)/$(SERVICE_NAME)/auth/kakao/app-rest-key" | jq '.Parameter | .Value')
 endif
