@@ -250,26 +250,26 @@ const items = [
     icon: <DateRange />,
     label: "예약 현황",
   },
-  {
-    linkTo: "/slot",
-    icon: <CalendarViewDay />,
-    label: "슬롯 인원 관리",
-  },
+  // {
+  //   linkTo: "/slot",
+  //   icon: <CalendarViewDay />,
+  //   label: "슬롯 인원 관리",
+  // },
   // {
   //   linkTo: "/crm-order",
   //   icon: <ViewList />,
   //   label: "대분류 우선순위 관리",
   // },
-  {
-    linkTo: "/crm",
-    icon: <Category />,
-    label: "CRM 대분류 관리",
-  },
-  {
-    linkTo: "/lang-crm",
-    icon: <Translate />,
-    label: "언어별 우선순위 관리",
-  },
+  // {
+  //   linkTo: "/crm",
+  //   icon: <Category />,
+  //   label: "CRM 대분류 관리",
+  // },
+  // {
+  //   linkTo: "/lang-crm",
+  //   icon: <Translate />,
+  //   label: "언어별 우선순위 관리",
+  // },
 ]
 
 function SidebarMenu() {
