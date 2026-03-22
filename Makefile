@@ -37,7 +37,7 @@ env:
 	@echo "GOOGLE_OAUTH_CLIENT_ID=$(GOOGLE_OAUTH_CLIENT_ID)" >> ./env/.env.$(STAGE)
 
 orval:
-	@npx orval -i $(BACKEND_API_URL)/docs-json
+	@BACKEND_API_URL=$(BACKEND_API_URL) npx orval@6.31.0
 
 init:
 	@yarn install

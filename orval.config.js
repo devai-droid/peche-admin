@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "peche-backend": {
     output: {
       target: "src/lib/orval/store.ts",
@@ -17,6 +17,11 @@ export default {
         },
       },
     },
-    input: {},
+    input: {
+      target: process.env.BACKEND_API_URL
+        ? `${process.env.BACKEND_API_URL}/docs-json`
+        : 'https://base.pecheskin.clinic/api/docs-json',
+      validation: false,
+    },
   },
 }
